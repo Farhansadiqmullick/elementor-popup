@@ -242,9 +242,31 @@ final class Elementor_Popup
 			$phone_number = sanitize_text_field($_POST['phone']);
 			$recipient_email = sanitize_email($_POST['recipient_email']);
 
+			// Get the user's IP address
+			$user_ip = $_SERVER['REMOTE_ADDR'];
+
+			// Use an IP geolocation service (ipinfo.io in this example)
+			$location_info = file_get_contents("https://ipinfo.io/{$user_ip}/json");
+			$location_data = json_decode($location_info);
+
+			// Extract location information
+			$location = "";
+			if (isset($location_data->city)) {
+				$location .= 'City: ' . $location_data->city . PHP_EOL;
+			}
+			if (isset($location_data->region)) {
+				$location .= 'Region: ' . $location_data->region . PHP_EOL;
+			}
+			if (isset($location_data->country)) {
+				$location .= 'Country: ' . $location_data->country . PHP_EOL;
+			}
+
 			// Here, you can send the email using your preferred method, e.g., wp_mail
-			$subject = 'Contact Request';
-			$message = 'Phone Number: ' . $phone_number;
+			$subject = 'Nucleus Jal Amrith Contact Request';
+			$message = 'Phone Number: ' . $phone_number . PHP_EOL . '<br />';
+			$message .= 'User Location:' . PHP_EOL . $location . '<br />';
+			$message .= 'Action:' . PHP_EOL . 'Please take necessary steps';
+
 
 			$sent = wp_mail($recipient_email, $subject, $message);
 

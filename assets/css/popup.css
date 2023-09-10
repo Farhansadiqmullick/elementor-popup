@@ -8,7 +8,7 @@
   position: fixed;
   max-width: 1024px;
   width: auto;
-  padding: 20px;
+  padding: 50px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -19,12 +19,14 @@
 
 .popup .popup-timer {
   min-width: 450px;
+  margin-bottom: 50px;
 }
 
 .popup .wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  overflow: auto;
 }
 
 .popup .close-btn {

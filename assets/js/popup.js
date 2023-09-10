@@ -45,7 +45,9 @@
           var result = JSON.parse(response);
 
           if (result.success) {
-            alert("Phone number sent successfully.");
+            alert(
+              "Your Phone Number has been stored, thanks for your interest"
+            );
           } else {
             alert("Error: " + result.message);
           }
