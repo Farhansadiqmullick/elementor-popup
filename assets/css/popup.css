@@ -1,0 +1,58 @@
+.popup {
+  display: none;
+}
+
+.popup.show {
+  display: block;
+  overflow: auto;
+  position: fixed;
+  max-width: 1024px;
+  width: auto;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  z-index: 99;
+  background-color: rgb(240, 240, 240);
+}
+
+.popup .popup-timer {
+  min-width: 450px;
+}
+
+.popup .wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.popup .close-btn {
+  position: absolute;
+  right: 20px;
+  top: 0%;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 3rem;
+  padding: 20px;
+}
+
+.phone-number button {
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 2.15rem;
+  padding: 16px 60px;
+  border-radius: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .popup .wrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .popup .popup-timer {
+    max-width: 500px;
+    min-width: none;
+  }
+}
